@@ -38,5 +38,15 @@ To run the application, execute the following command:
 ```bash
 npm run test
 ```
+I have used JEST to do the unit tests.
 
+To validate the solution, I have implemented these test cases: 
 
+1. Creating an instance of BigZ class
+2. All rows do not have the same number of elements
+3. Exercise test case
+4. Test with none-square matrix and N-dimention < M-dimention
+5. Test with none-square matrix and N-dimention > M-dimention
+6. Test with 2x2 square matrix
+7. Test with 1x1 square matrix
+8. Test with empty matrix

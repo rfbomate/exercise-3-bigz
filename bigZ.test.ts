@@ -16,7 +16,7 @@ describe("BigZ tests", () => {
     });
 
 
-    it("All rows haven't the same numbers of items", () => {
+    it("All rows do not have the same number of elements", () => {
         inputMatrix = [
             [1, 3, 4, 10],
             [2, 5, 9, 11],
@@ -30,7 +30,7 @@ describe("BigZ tests", () => {
         }
     });
 
-    it('Test with test case of the exercise', () => {
+    it('Exercise test case', () => {
         inputMatrix = [
             [1, 3, 4, 10],
             [2, 5, 9, 11],
