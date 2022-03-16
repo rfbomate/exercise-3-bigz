@@ -1,9 +1,14 @@
 
 class BigZ {
-    _matriz: number[][]
+    _matrix: number[][]
 
-    constructor(pMatriz: number[][]) {
-        this._matriz = pMatriz;
+    constructor(pMatrix: number[][]) {
+
+        let isCorrectMatrix = pMatrix.every((item) => item.length == pMatrix[0].length);
+        if (!isCorrectMatrix) {
+            throw "The rows of the matrix must have the same numbers of items";
+        }
+        this._matrix = pMatrix;
     }
 
     drawTour(): number[] {
@@ -15,7 +20,7 @@ class BigZ {
         let rowIndex: number = 0;
         let columnIndex: number = 0;
 
-        const finalIndex: number[] = [this._matriz.length - 1, this._matriz[this._matriz.length - 1].length - 1];
+        const finalIndex: number[] = [this._matrix.length - 1, this._matrix[this._matrix.length - 1].length - 1];
 
 
         while (resultList.length < resultListLength) {
@@ -24,18 +29,18 @@ class BigZ {
             }
             switch (state) {
                 case 'Initial': { //initial 
-                    resultList.push(this._matriz[rowIndex][columnIndex]);
+                    resultList.push(this._matrix[rowIndex][columnIndex]);
                     state = 'Down1'; //down one step if can i, if can't down, I move right,  
                     break;
                 }
 
                 case "Down1": {
-                    if (this._matriz[rowIndex + 1] != undefined && this._matriz[rowIndex + 1][columnIndex] != undefined) { // if i can move down 
+                    if (this._matrix[rowIndex + 1] != undefined && this._matrix[rowIndex + 1][columnIndex] != undefined) { // if i can move down 
                         rowIndex++;
                     } else {
                         columnIndex++;
                     }
-                    resultList.push(this._matriz[rowIndex][columnIndex]);
+                    resultList.push(this._matrix[rowIndex][columnIndex]);
                     state = "DiagonalRightUp";
                     break;
                 }
@@ -52,12 +57,12 @@ class BigZ {
 
                 case "Right": {
 
-                    if (this._matriz[rowIndex] != undefined && this._matriz[rowIndex][columnIndex + 1] != undefined) {
+                    if (this._matrix[rowIndex] != undefined && this._matrix[rowIndex][columnIndex + 1] != undefined) {
                         columnIndex++;
                     } else {
                         rowIndex++;
                     }
-                    resultList.push(this._matriz[rowIndex][columnIndex]);
+                    resultList.push(this._matrix[rowIndex][columnIndex]);
                     state = 'DiagonalLeftDown';
                     break;
                 }
@@ -72,12 +77,6 @@ class BigZ {
                     break;
                 }
             }
-
-
-
-
-
-
         }
 
 
@@ -87,7 +86,7 @@ class BigZ {
     private calculateLengthResultList(): number {
         let result = 0;
 
-        this._matriz.forEach((item) => {
+        this._matrix.forEach((item) => {
             result += item.length;
         });
 
@@ -98,14 +97,14 @@ class BigZ {
 
         let [initialRow, initialColumn] = position;
         let result: number[][] = [[], [position[0], position[1]]];
-        if (this._matriz[initialRow][initialColumn] == undefined) {
+        if (this._matrix[initialRow][initialColumn] == undefined) {
             return result;
         }
 
 
 
-        while (this._matriz[initialRow] != undefined && this._matriz[initialRow][initialColumn] != undefined) {
-            result[0].push(this._matriz[initialRow][initialColumn]);
+        while (this._matrix[initialRow] != undefined && this._matrix[initialRow][initialColumn] != undefined) {
+            result[0].push(this._matrix[initialRow][initialColumn]);
 
             initialRow--;
             initialColumn++;
@@ -122,14 +121,14 @@ class BigZ {
         let [initialRow, initialColumn] = position;
         let resultFinal: number[][] = [[], [position[0], position[1]]];
 
-        if (this._matriz[initialRow] == undefined || this._matriz[initialRow][initialColumn] == undefined) {
+        if (this._matrix[initialRow] == undefined || this._matrix[initialRow][initialColumn] == undefined) {
 
             return resultFinal;
         }
 
 
-        while (this._matriz[initialRow] != undefined && this._matriz[initialRow][initialColumn] != undefined) {
-            resultFinal[0].push(this._matriz[initialRow][initialColumn]);
+        while (this._matrix[initialRow] != undefined && this._matrix[initialRow][initialColumn] != undefined) {
+            resultFinal[0].push(this._matrix[initialRow][initialColumn]);
 
             initialRow++;
             initialColumn--;

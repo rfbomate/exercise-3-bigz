@@ -3,10 +3,11 @@ import { BigZ } from './utilities/BigZ';
 console.clear();
 try {
     const inputMatriz = [
-        [1, 3, 4, 10, 24],
-        [2, 5, 9, 11, 46],
-        [6, 8, 12, 15, 51],
-        [7, 13, 14, 16, 75]
+        [1, 2, 3, 4, 9],
+        [5, 6, 7, 8],
+        [9, 10, 11, 12],
+        [13, 14, 15, 16],
+        [17, 18, 19, 20]
 
     ];
     const bigZInstance: BigZ = new BigZ(inputMatriz);
