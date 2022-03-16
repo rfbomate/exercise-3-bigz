@@ -37,7 +37,7 @@ To run the tests sets, execute the following command:
 ```bash
 npm run test
 ```
-I have used JEST to do the unit tests.
+I have used "Jest"to do the unit tests.
 
 To validate the solution, I have implemented these test cases: 
 

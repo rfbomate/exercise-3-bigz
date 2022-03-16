@@ -1,3 +1,4 @@
+//import class BigZ
 import { BigZ } from './utilities/BigZ';
 
 console.clear(); //Clean the console
